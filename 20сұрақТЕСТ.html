@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қыз Жібек жыры - 20 сұрақтық тест</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, #e6f7ff, #f0f8ff);
+        }
+        
+        .header {
+            background-color: #044680;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-image: url('123.jpg');
+            background-size: cover;
+            border-bottom: 5px solid #0a316b;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid #84b5e0;
+            background-color: #f9f9f9;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .question h3 {
+            margin-top: 0;
+            color: #02315a;
+        }
+        
+        .options {
+            margin-left: 20px;
+        }
+        
+        .option {
+            margin: 10px 0;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .option input {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px;
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1565c0;
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            text-align: center;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .result h2 {
+            color: #2e7d32;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e88e5;
+        }
+        
+        .correct-answers {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .correct {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .incorrect {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .alert {
+            display: none;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffeeba;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Қыз Жібек жыры - 20 сұрақтық тест</h1>
+    </div>
+    
+    <div class="container">
+        <img src="123.jpg" alt="Қыз Жібек" class="hero-image">
+        
+        <div class="alert" id="alert">
+            Барлық сұрақтарға жауап беруіңіз керек! Тест нәтижесін көру үшін 20 сұрақтың барлығына да жауап беріңіз.
+        </div>
+        
+        <div id="quiz-container">
+            <div class="question" id="q2">
+                <h3>2. Жырдың алғашқы басылымы қай қалада жарық көрді?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="A"> Орынбор</label>
+                    <label class="option"><input type="radio" name="q2" value="B"> Қазан</label>
+                    <label class="option"><input type="radio" name="q2" value="C"> Ташкент</label>
+                    <label class="option"><input type="radio" name="q2" value="D"> Алматы</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q3">
+                <h3>3. Базарбайдың неше ұлы оба кезінде қаза тапты?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="A"> 5</label>
+                    <label class="option"><input type="radio" name="q3" value="B"> 9</label>
+                    <label class="option"><input type="radio" name="q3" value="C"> 7</label>
+                    <label class="option"><input type="radio" name="q3" value="D"> 3</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q4">
+                <h3>4. Төлегеннің інісінің аты кім?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="A"> Қаршыға</label>
+                    <label class="option"><input type="radio" name="q4" value="B"> Сансызбай</label>
+                    <label class="option"><input type="radio" name="q4" value="C"> Жиренбай</label>
+                    <label class="option"><input type="radio" name="q4" value="D"> Шеге</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q5">
+                <h3>5. Базарбайдың неше әйелі болған?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="A"> 3</label>
+                    <label class="option"><input type="radio" name="q5" value="B"> 2</label>
+                    <label class="option"><input type="radio" name="q5" value="C"> 1</label>
+                    <label class="option"><input type="radio" name="q5" value="D"> 4</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q6">
+                <h3>6. Төлегеннің шешесінің аты кім?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="A"> Айман</label>
+                    <label class="option"><input type="radio" name="q6" value="B"> Қамқа</label>
+                    <label class="option"><input type="radio" name="q6" value="C"> Жібек</label>
+                    <label class="option"><input type="radio" name="q6" value="D"> Салиха</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q7">
+                <h3>7. Жырдағы басты ханның аты кім?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="A"> Сырымбет</label>
+                    <label class="option"><input type="radio" name="q7" value="B"> Сырлыбай</label>
+                    <label class="option"><input type="radio" name="q7" value="C"> Қарашора</label>
+                    <label class="option"><input type="radio" name="q7" value="D"> Қараман</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q8">
+                <h3>8. Қаршыға кім?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="A"> Ханның ұлы</label>
+                    <label class="option"><input type="radio" name="q8" value="B"> Ханның уәзірі әрі жыршысы</label>
+                    <label class="option"><input type="radio" name="q8" value="C"> Базарбайдың ағасы</label>
+                    <label class="option"><input type="radio" name="q8" value="D"> Сансызбайдың досы</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q9">
+                <h3>9. Төлеген жолға шығарда неше жігіт қосшы алды?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="A"> 60</label>
+                    <label class="option"><input type="radio" name="q9" value="B"> 80</label>
+                    <label class="option"><input type="radio" name="q9" value="C"> 40</label>
+                    <label class="option"><input type="radio" name="q9" value="D"> 100</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q10">
+                <h3>10. Төлеген неше жорға таратты қыз көру барысында?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="A"> 100</label>
+                    <label class="option"><input type="radio" name="q10" value="B"> 50</label>
+                    <label class="option"><input type="radio" name="q10" value="C"> 210</label>
+                    <label class="option"><input type="radio" name="q10" value="D"> 10</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q11">
+                <h3>11. Жырда қай елдің сұлу қыздары айтылады?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q11" value="A"> Шекті</label>
+                    <label class="option"><input type="radio" name="q11" value="B"> Арғын</label>
+                    <label class="option"><input type="radio" name="q11" value="C"> Найман</label>
+                    <label class="option"><input type="radio" name="q11" value="D"> Қыпшақ</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q12">
+                <h3>12. Төлеген Жайыққа не үшін жолға шықты?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q12" value="A"> Сауда жасау үшін</label>
+                    <label class="option"><input type="radio" name="q12" value="B"> Дұшпаннан қашу үшін</label>
+                    <label class="option"><input type="radio" name="q12" value="C"> Қыз іздеу үшін</label>
+                    <label class="option"><input type="radio" name="q12" value="D"> Елге оралу үшін</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q13">
+                <h3>13. Қыз Жібек қандай сипатпен бейнеленеді?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q13" value="A"> Ақылды, көркем, сұлу</label>
+                    <label class="option"><input type="radio" name="q13" value="B"> Қатты мінезді</label>
+                    <label class="option"><input type="radio" name="q13" value="C"> Қарапайым ауыл қызы</label>
+                    <label class="option"><input type="radio" name="q13" value="D"> Ұрысқақ, қызғаншақ</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q14">
+                <h3>14. Жырдағы басты оқиға қай ғасырлар аралығында таралған?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q14" value="A"> XVIII--XIX ғғ.</label>
+                    <label class="option"><input type="radio" name="q14" value="B"> XV--XVI ғғ.</label>
+                    <label class="option"><input type="radio" name="q14" value="C"> XIX--XX ғғ.</label>
+                    <label class="option"><input type="radio" name="q14" value="D"> XIII--XIV ғғ.</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q15">
+                <h3>15. Базарбай балаларына неге қалыңмал бермеген?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q15" value="A"> Малы жоқ болған соң</label>
+                    <label class="option"><input type="radio" name="q15" value="B"> Дұшпанға сенбегендіктен</label>
+                    <label class="option"><input type="radio" name="q15" value="C"> Олар өздері таңдап алар деп</label>
+                    <label class="option"><input type="radio" name="q15" value="D"> Қызметке салмақ болған</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q16">
+                <h3>16. Қыз Жібек алғаш қайда көрінеді?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q16" value="A"> Шатырда</label>
+                    <label class="option"><input type="radio" name="q16" value="B"> Көш үстінде</label>
+                    <label class="option"><input type="radio" name="q16" value="C"> Хан ордасында</label>
+                    <label class="option"><input type="radio" name="q16" value="D"> Жайлауда</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q17">
+                <h3>17. Жырда кім Төлегенді көре алмады?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q17" value="A"> Қаршыға</label>
+                    <label class="option"><input type="radio" name="q17" value="B"> Жібек</label>
+                    <label class="option"><input type="radio" name="q17" value="C"> Бекежан</label>
+                    <label class="option"><input type="radio" name="q17" value="D"> Сансызбай</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q18">
+                <h3>18. Төлеген қандай түс көрген соң анасына сыр айтады?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q18" value="A"> Жолда адасқанын</label>
+                    <label class="option"><input type="radio" name="q18" value="B"> Жорғасының ерсіз жүргенін</label>
+                    <label class="option"><input type="radio" name="q18" value="C"> Жеңіске жеткенін</label>
+                    <label class="option"><input type="radio" name="q18" value="D"> Бекежаннан қашқанын</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q19">
+                <h3>19. Жырда қандай көркемдік тәсілдер кең қолданылған?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q19" value="A"> Параллелизм, градация, теңеу</label>
+                    <label class="option"><input type="radio" name="q19" value="B"> Шиеленіс, прозалық баяндау</label>
+                    <label class="option"><input type="radio" name="q19" value="C"> Ғылыми дерек</label>
+                    <label class="option"><input type="radio" name="q19" value="D"> Деректі есеп</label>
+                </div>
+            </div>
+            
+            <div class="question" id="q1">
+                <h3>1. «Қыз Жібек» жырын алғаш қағазға түсірген кім?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="A"> Махамбет</label>
+                    <label class="option"><input type="radio" name="q1" value="B"> Жүсіпбек Шайхисламұлы</label>
+                    <label class="option"><input type="radio" name="q1" value="C"> Абай Құнанбайұлы</label>
+                    <label class="option"><input type="radio" name="q1" value="D"> Мұхтар Әуезов</label>
+                </div>
+            </div>
+            
+            <!-- 2-ден 19-ға дейінгі сұрақтар бұрынғыдай сақталды -->
+            
+            <div class="question" id="q20">
+                <h3>20. Төлеген мен Жібектің қосылуына кім кедергі жасайды?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q20" value="A"> Қаршыға</label>
+                    <label class="option"><input type="radio" name="q20" value="B"> Бекежан мен кейбір жігіттер</label>
+                    <label class="option"><input type="radio" name="q20" value="C"> Сырлыбай</label>
+                    <label class="option"><input type="radio" name="q20" value="D"> Сансызбай</label>
+                </div>
+            </div>
+            
+            <button class="submit-btn" onclick="checkAnswers()">Тестті аяқтау</button>
+        </div>
+        
+        <div class="result" id="result">
+            <h2>Тест нәтижесі</h2>
+            <p>Сіз <span class="score" id="score">0</span> балл жинадыңыз! (20-дан)</p>
+            <div class="correct-answers" id="correct-answers"></div>
+        </div>
+    </div>
+    
+    <script>
+        const correctAnswers = {
+            q1: "B",
+            q2: "B",
+            q3: "B",
+            q4: "A",
+            q5: "B",
+            q6: "B",
+            q7: "B",
+            q8: "B",
+            q9: "C",
+            q10: "A",
+            q11: "C",
+            q12: "A",
+            q13: "A",
+            q14: "A",
+            q15: "B",
+            q16: "C",
+            q17: "B",
+            q18: "A",
+            q19: "A",
+            q20: "B"
+        };
+
+        const answerTexts = {
+            q1: {
+                A: "Махамбет",
+                B: "Жүсіпбек Шайхисламұлы",
+                C: "Абай Құнанбайұлы",
+                D: "Мұхтар Әуезов"
+            },
+            q2: {
+                A: "Орынбор",
+                B: "Қазан",
+                C: "Ташкент",
+                D: "Алматы"
+            },
+            q3: {
+                A: "5",
+                B: "9",
+                C: "7",
+                D: "3"
+            },
+            q4: {
+                A: "Қаршыға",
+                B: "Сансызбай",
+                C: "Жиренбай",
+                D: "Шеге"
+            },
+            q5: {
+                A: "3",
+                B: "2",
+                C: "1",
+                D: "4"
+            },
+            q6: {
+                A: "Айман",
+                B: "Қамқа",
+                C: "Жібек",
+                D: "Салиха"
+            },
+            q7: {
+                A: "Сырымбет",
+                B: "Сырлыбай",
+                C: "Қарашора",
+                D: "Қараман"
+            },
+            q8: {
+                A: "Ханның ұлы",
+                B: "Ханның уәзірі әрі жыршысы",
+                C: "Базарбайдың ағасы",
+                D: "Сансызбайдың досы"
+            },
+            q9: {
+                A: "60",
+                B: "80",
+                C: "40",
+                D: "100"
+            },
+            q10: {
+                A: "100",
+                B: "50",
+                C: "210",
+                D: "10"
+            },
+            q11: {
+                A: "Шекті",
+                B: "Арғын",
+                C: "Найман",
+                D: "Қыпшақ"
+            },
+            q12: {
+                A: "Сауда жасау үшін",
+                B: "Дұшпаннан қашу үшін",
+                C: "Қыз іздеу үшін",
+                D: "Елге оралу үшін"
+            },
+            q13: {
+                A: "Ақылды, көркем, сұлу",
+                B: "Қатты мінезді",
+                C: "Қарапайым ауыл қызы",
+                D: "Ұрысқақ, қызғаншақ"
+            },
+            q14: {
+                A: "XVIII--XIX ғғ.",
+                B: "XV--XVI ғғ.",
+                C: "XIX--XX ғғ.",
+                D: "XIII--XIV ғғ."
+            },
+            q15: {
+                A: "Малы жоқ болған соң",
+                B: "Дұшпанға сенбегендіктен",
+                C: "Олар өздері таңдап алар деп",
+                D: "Қызметке салмақ болған"
+            },
+            q16: {
+                A: "Шатырда",
+                B: "Көш үстінде",
+                C: "Хан ордасында",
+                D: "Жайлауда"
+            },
+            q17: {
+                A: "Қаршыға",
+                B: "Жібек",
+                C: "Бекежан",
+                D: "Сансызбай"
+            },
+            q18: {
+                A: "Жолда адасқанын",
+                B: "Жорғасының ерсіз жүргенін",
+                C: "Жеңіске жеткенін",
+                D: "Бекежаннан қашқанын"
+            },
+            q19: {
+                A: "Параллелизм, градация, теңеу",
+                B: "Шиеленіс, прозалық баяндау",
+                C: "Ғылыми дерек",
+                D: "Деректі есеп"
+            },
+            q20: {
+                A: "Қаршыға",
+                B: "Бекежан мен кейбір жігіттер",
+                C: "Сырлыбай",
+                D: "Сансызбай"
+            }
+        };
+        
+        function checkAnswers() {
+            // Барлық сұрақтарға жауап берілгенін тексеру
+            let allAnswered = true;
+            for (let i = 1; i <= 20; i++) {
+                const questionId = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                if (!selectedOption) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+            
+            if (!allAnswered) {
+                document.getElementById("alert").style.display = "block";
+                document.getElementById("result").style.display = "none";
+                window.scrollTo(0, 0);
+                return;
+            }
+            
+            // Егер барлық сұрақтарға жауап берілсе
+            document.getElementById("alert").style.display = "none";
+            
+            let score = 0;
+            let resultsHtml = "<h3>Дұрыс жауаптар:</h3><ol>";
+            
+            for (let i = 1; i <= 20; i++) {
+                const questionId = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                const questionElement = document.getElementById(questionId);
+                
+                if (selectedOption.value === correctAnswers[questionId]) {
+                    score++;
+                    questionElement.classList.add("correct");
+                } else {
+                    questionElement.classList.add("incorrect");
+                }
+                
+                // Дұрыс жауапты қосу
+                const correctKey = correctAnswers[questionId];
+                const correctAnswer = answerTexts[questionId][correctKey];
+                resultsHtml += `<li><strong>${i}. Сұрақ:</strong> ${correctAnswer}</li>`;
+            }
+            
+            resultsHtml += "</ol>";
+            document.getElementById("score").textContent = score;
+            document.getElementById("correct-answers").innerHTML = resultsHtml;
+            document.getElementById("result").style.display = "block";
+            document.getElementById("quiz-container").scrollIntoView();
+        }
+    </script>
+</body>
+</html>
